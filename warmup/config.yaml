@@ -1,0 +1,60 @@
+# Warm-up configuration. No secrets in this file.
+
+timezone: America/New_York          # Trilles Law, St. Petersburg FL
+start_date: 2026-11-11              # Week 1 day 1. A later date shifts every week by the same number of days.
+weekdays_only: true
+extra_working_days: []             # one-off weekend days to send on
+working_hours: {start: "09:00", end: "17:00"}
+
+# Per inbox, per day: [min, max] emails (new sends + replies).
+calendar:
+  - {week: 1, range: [5, 10]}
+  - {week: 2, range: [10, 15]}
+  - {week: 3, range: [15, 25]}
+  - {week: 4, range: [25, 35]}       # Week 4 and later
+
+hard_daily_cap: 35                  # Never exceeded per inbox per day, whatever the calendar says.
+gap_minutes: [5, 15]                # Gap between consecutive sends inside a sending burst.
+reply_delay_minutes: [20, 240]
+no_repeat_days: 14                  # Same subject never sent twice by the same inbox in this window.
+bounce_pause_threshold: 0.02        # Bounce rate (last 7 days) above this pauses the inbox...
+pause_days: 7                       # ...for this many days.
+lookback_days: 2                    # How far back to look for incoming warm-up mail / bounces.
+
+address: "7901 4th St N, Ste 300\nSt. Petersburg, FL 33702"
+company: Trilles Law
+
+inboxes:
+  awais:
+    email: awais@trilleslaw.com
+    full_name: "Awais"
+    title: "Founder & CEO"
+  salman:
+    email: salman@trilleslaw.com
+    full_name: "Salman"
+    title: "Founder & CTO"
+
+# Outside recipients (send-only seeds). Each inbox sends this share of its NEW emails to them instead of to
+# the other warm-up inbox. Replies are done by hand; the tool never logs in to these accounts.
+# Week 1 is inbox-to-inbox only (user's choice): keep external_share at 0 until Week 2, then add seeds.
+external_share: 0
+external_seeds: []
+
+# GitHub Actions only sends for real when this is true (the CLI itself always needs --live).
+github_actions_live: false  # set true only after the dry run looks right
+
+paths:
+  secrets_dir: secrets
+  data_dir: data
+
+# Optional Google Sheets logging ("Daily Scoreboard").
+sheets:
+  enabled: false                    # turn on once the new sheet exists and is shared
+  spreadsheet_id: ""
+  token_inbox: salman               # whose OAuth token also carries the Sheets scope
+  tab: "warm-up"
+  # mode "upsert": one row per inbox per day (date, inbox, sent, replied, rescued, problems), updated every run
+  # mode "row": finds the row whose column A is row_label and the column whose row-1 header is today's date,
+  #             and writes "S x / R y / Sp z / P n" (all inboxes combined) into that cell.
+  mode: upsert
+  row_label: "warm-up"
