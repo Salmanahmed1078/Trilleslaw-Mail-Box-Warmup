@@ -1,7 +1,7 @@
 # Warm-up configuration. No secrets in this file.
 
 timezone: America/New_York          # Trilles Law, St. Petersburg FL
-start_date: 2026-11-11              # Week 1 day 1. A later date shifts every week by the same number of days.
+start_date: 2026-11-12              # Week 1 day 1. A later date shifts every week by the same number of days.
 weekdays_only: true
 extra_working_days: []             # one-off weekend days to send on
 working_hours: {start: "09:00", end: "17:00"}
@@ -41,7 +41,7 @@ external_share: 0
 external_seeds: []
 
 # GitHub Actions only sends for real when this is true (the CLI itself always needs --live).
-github_actions_live: false  # set true only after the dry run looks right
+github_actions_live: true   # live since 2026-11-12
 
 paths:
   secrets_dir: secrets
