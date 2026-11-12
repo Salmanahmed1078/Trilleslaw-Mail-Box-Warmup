@@ -49,8 +49,8 @@ paths:
 
 # Optional Google Sheets logging ("Daily Scoreboard").
 sheets:
-  enabled: false                    # turn on once the new sheet exists and is shared
-  spreadsheet_id: ""
+  enabled: true                     # sheet exists; must be shared with the token_inbox account
+  spreadsheet_id: "1G6wx8vzzTjq26pE3aFPeo8gftLDFyyCS_ggau1nv_dE"
   token_inbox: salman               # whose OAuth token also carries the Sheets scope
   tab: "warm-up"
   # mode "upsert": one row per inbox per day (date, inbox, sent, replied, rescued, problems), updated every run
