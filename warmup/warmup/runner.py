@@ -87,7 +87,8 @@ class Runner:
                     and a["at"][:10] >= cutoff and a["status"] != "skipped"]
             used = {a["subject"].lower() for a in mine}
             recent = [a["template_id"] for a in sorted(mine, key=lambda a: a["at"])]
-            email, values = content.pick_email(cfg, self.pool, sender, rcpt, rng, used, recent, day.weekday())
+            email, values = content.pick_email(cfg, self.pool, sender, rcpt, rng, used, recent, day.weekday(),
+                                            week_number(cfg, day))
             action = {"id": f"{day:%Y%m%d}-{sender_key}-s{i}", "kind": "send", "inbox": sender_key,
                       "to": rcpt.key, "at": at.isoformat(), "subject": email.subject, "body": email.body,
                       "template_id": email.template_id, "values": values, "status": "planned"}

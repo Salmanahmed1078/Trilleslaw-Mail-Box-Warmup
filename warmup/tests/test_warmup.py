@@ -10,17 +10,17 @@ CFG = config.load()
 
 
 def test_calendar_and_shift():
-    assert target_range(CFG, dt.date(2026, 11, 11)) == (5, 10)
-    assert target_range(CFG, dt.date(2026, 11, 18)) == (10, 15)
-    assert target_range(CFG, dt.date(2026, 11, 25)) == (15, 25)
-    assert target_range(CFG, dt.date(2026, 12, 9)) == (25, 35)
+    assert target_range(CFG, dt.date(2026, 11, 12)) == (5, 10)
+    assert target_range(CFG, dt.date(2026, 11, 19)) == (10, 15)
+    assert target_range(CFG, dt.date(2026, 11, 26)) == (15, 25)
+    assert target_range(CFG, dt.date(2026, 12, 10)) == (25, 35)
     assert target_range(CFG, dt.date(2026, 11, 14)) == (0, 0)  # Saturday
     CFG.start_date = dt.date(2026, 11, 16)
     try:
         assert week_number(CFG, dt.date(2026, 11, 23)) == 2
         assert target_range(CFG, dt.date(2026, 11, 13)) == (0, 0)
     finally:
-        CFG.start_date = dt.date(2026, 11, 11)
+        CFG.start_date = dt.date(2026, 11, 12)
 
 
 def test_spread_times_gaps_and_hours():
@@ -58,3 +58,22 @@ def test_bounce_stops_everything(capsys):
     main(["simulate", "--days", "2", "--bounce", "salman"])
     out = capsys.readouterr().out
     assert "ALERT" in out and "stopped by alert" in out
+
+
+def test_week_filter_and_pi_content():
+    pool = content.load_pool()
+    a, b = CFG.inboxes["awais"], CFG.inboxes["salman"]
+    for week, outreach_allowed in ((1, False), (2, True)):
+        seen = set()
+        for seed in range(300):
+            email, _ = content.pick_email(CFG, pool, a, b, random.Random(seed), set(), [], 2, week)
+            seen.add(email.template_id)
+        assert any(t.startswith("out-") for t in seen) == outreach_allowed
+        assert not any(t in seen for t in ("tracker-weekly", "admin-training"))  # parked generic pool
+    for tpl in pool["templates"]:
+        if tpl.get("min_week", 1) < 99:
+            email, _ = content.render_email(CFG, pool, tpl, a, b, random.Random(3))
+            assert 2 <= content.sentence_count(email.body.split("\n\n")[1]) <= 5, tpl["id"]
+            assert "Trilles LLC" not in email.body
+            for r in tpl["replies"]:
+                content.check_clean(r.format(first="Sam", day="Friday", firm="X", n="two", time="10:00", tool="Slack", matter="m"))

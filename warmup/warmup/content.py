@@ -70,12 +70,15 @@ def render_reply(cfg: Config, pool: dict, template_id: str, values: dict, sender
 
 
 def pick_email(cfg: Config, pool: dict, sender: Inbox, recipient: Inbox, rng: random.Random,
-               used_subjects: set[str], recent_templates: list[str], weekday: int | None = None) -> tuple[Email, dict]:
+               used_subjects: set[str], recent_templates: list[str], weekday: int | None = None,
+               week: int = 1) -> tuple[Email, dict]:
     """Choose an email whose subject this sender has not used in the no-repeat window.
 
     Templates the sender used least recently are preferred, so topics rotate before subjects repeat.
     """
     templates = [t for t in pool["templates"] if weekday is None or weekday in t.get("weekdays", range(7))]
+    # Optional per template: min_week / max_week (warm-up week, 1-based). Parked templates use min_week: 99.
+    templates = [t for t in templates if t.get("min_week", 1) <= week <= t.get("max_week", 999)]
     rng.shuffle(templates)
     rank = {tid: i for i, tid in enumerate(recent_templates)}  # higher index = used more recently
     templates.sort(key=lambda t: rank.get(t["id"], -1))

@@ -5,16 +5,17 @@
 # Rules: no links, no attachments, no images, no "test" subjects, 3-5 sentences per body.
 
 fills:
-  firm: [Harbor & Lane Partners, Crestview Advisory, Northgate Legal, Bayside Accounting Group, Palmetto Wealth,
-         Redwood Claims Services, Sunline Logistics, Keystone Dental Partners, Bluewater Insurance Agency,
-         Oakridge Property Management, Meridian Tax Advisors, Gulfstream Realty, Summit Ridge Consulting,
-         Brightwater Clinics, Ironbridge Construction, Coastal Benefits Group, Lakeshore Law Office,
-         Pinecrest Financial, Tidewater Engineering, Westbrook Staffing, Silver Oak Capital, Cypress Point Medical,
-         Granite Peak Builders, Seabreeze Hospitality, Hillcrest Family Law, Riverside Recovery Group]
+  firm: [Bayfront Injury Law, Harborview Injury Attorneys, Gulfcoast Accident Lawyers, Palmetto Injury Group,
+         Crestline Personal Injury, Sunrise Injury Law, Keystone Accident Attorneys, Lakeshore Injury Law,
+         Meridian Injury Lawyers, Oakridge Accident Law, Summit Injury Group, Coastal Injury Attorneys,
+         Northgate Injury Law, Redwood Injury Lawyers, Tidewater Accident Law, Cypress Injury Group,
+         Silver Oak Injury Law, Pinecrest Accident Attorneys, Riverside Injury Law, Granite Peak Injury Lawyers]
   day: [Monday, Tuesday, Wednesday, Thursday, Friday]
   time: ["10:00", "10:30", "11:00", "11:30", "1:00", "1:30", "2:00", "2:30", "3:00", "3:30", "4:00"]
   tool: [HubSpot, Notion, Airtable, Apollo, Clay, Slack, Loom, Google Sheets, Calendly, Zapier, Pipedrive, ClickUp]
   n: ["two", "three", "four", "five", "six"]
+  matter: ["a rear-end collision matter", "a slip and fall matter", "a trucking accident matter", "a motorcycle crash matter",
+           "a dog bite matter", "a premises liability matter", "a rideshare accident matter", "a pedestrian injury matter"]
 
 greetings: ["Hi {first},", "Hey {first},", "{first},", "Hi {first}, hope your day is going well.", "Morning {first},", "Hello {first},"]
 signoffs: ["Thanks,", "Best,", "Cheers,", "Thanks a lot,", "Talk soon,", "Appreciate it,"]
@@ -22,6 +23,7 @@ reply_signoffs: ["Thanks,", "Best,", "Cheers,", "Talk soon,"]
 
 templates:
   - id: tracker-weekly
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Tracker update for {firm}", "{firm} row in the tracker", "Quick tracker note on {firm}"]
     body: >-
       I updated the {firm} row in the tracker this morning. Their decision maker changed last month, so I swapped
@@ -34,6 +36,7 @@ templates:
       - "Perfect, that saves me a step. I will move it to the next stage after the review."
 
   - id: tracker-cleanup
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Cleaning up duplicate rows", "Duplicates in the pipeline sheet", "Tracker cleanup before {day}"]
     body: >-
       I found {n} duplicate rows in the pipeline tracker while sorting by firm name. Most of them came from the
@@ -45,6 +48,7 @@ templates:
       - "Looks good to me. Can we add a quick check for duplicates before the next import?"
 
   - id: tracker-stages
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Stage definitions in the tracker", "Proposal for tracker stages", "Simplifying our pipeline stages"]
     body: >-
       I think we have too many stages in the tracker and people are using them differently. My suggestion is to cut
@@ -57,6 +61,7 @@ templates:
       - "Yes please. I would keep a separate stage for paused deals, but otherwise I am with you."
 
   - id: tracker-owner
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Owner column on the tracker", "Assigning owners to open rows", "Who owns the {firm} follow-up?"]
     body: >-
       A few rows in the tracker still have no owner, including {firm}. I can take {firm} if you are busy this week.
@@ -67,6 +72,7 @@ templates:
       - "Done for most of them. Two are still unclear, I will ask in the sync."
 
   - id: tracker-report
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Weekly numbers from the tracker", "This week's pipeline summary", "Pipeline summary draft"]
     body: >-
       I pulled the weekly numbers from the tracker. We added {n} new firms and moved two into the proposal stage.
@@ -79,6 +85,7 @@ templates:
       - "Nice work. Let us talk about the lower response rate on {day}."
 
   - id: call-prep-firm
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Prep for the {firm} call", "Notes before {firm} on {day}", "{firm} call prep"]
     body: >-
       Our call with {firm} is on {day} at {time}. I put together a short brief with their team size, current
@@ -91,6 +98,7 @@ templates:
       - "Looks good. Do we know if anyone else from their side is joining?"
 
   - id: call-prep-agenda
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Agenda for the {day} call", "Draft agenda for {day}", "Call agenda, {day} {time}"]
     body: >-
       Here is a rough agenda for {day}. Five minutes on introductions, fifteen on their current process, and ten on
@@ -101,6 +109,7 @@ templates:
       - "Works for me. I will keep an eye on the time."
 
   - id: call-prep-questions
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Discovery questions for {firm}", "Questions list for the {firm} meeting", "What we want to learn from {firm}"]
     body: >-
       I drafted {n} discovery questions for the {firm} meeting. They focus on how they track new clients and where
@@ -113,6 +122,7 @@ templates:
       - "Looks solid. I will print them out so we can tick them off during the call."
 
   - id: call-followup
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Follow-up notes from {firm}", "Recap of the {firm} call", "{firm} call recap"]
     body: >-
       Good call with {firm} today. They are interested but want to see how it fits with their current setup first.
@@ -124,6 +134,7 @@ templates:
       - "Happy for you to take it. Let me know when the draft is ready and I will read it."
 
   - id: call-reschedule
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Moving our {day} call", "Can we shift {day} to later?", "Small change for {day}"]
     body: >-
       Something came up on my side for {day} morning. Could we move our call to {time} instead? If that does not
@@ -135,6 +146,7 @@ templates:
       - "All good, just send me the new time and I will make it work."
 
   - id: meeting-time
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Time for a quick sync this week", "Finding 30 minutes this week", "Short sync on {day}?"]
     body: >-
       Can we find thirty minutes this week to go over the open items? I am free on {day} at {time} or later in the
@@ -145,6 +157,7 @@ templates:
       - "Sure, I am free then. I will bring my list too."
 
   - id: meeting-recurring
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Making our sync recurring", "Weekly check-in slot", "Recurring {day} check-in"]
     body: >-
       We keep scheduling our check-in from scratch every week. Would it be easier to set a recurring slot on {day}
@@ -155,6 +168,7 @@ templates:
       - "Please set it up. I will add a running agenda to the invite."
 
   - id: meeting-notes
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Notes from this morning", "Meeting notes and action items", "Action items from today"]
     body: >-
       I wrote up the notes from this morning and listed the action items at the top. You have the two items about
@@ -167,6 +181,7 @@ templates:
       - "Great notes. Nothing to add from my side."
 
   - id: meeting-room
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Room for {day}", "Where are we meeting {day}?", "Location for {day} at {time}"]
     body: >-
       Do you want to meet in person on {day} or keep it on video? I am fine either way. If we meet in person, the
@@ -177,6 +192,7 @@ templates:
       - "Either is fine. Let us do the small room."
 
   - id: research-firm
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Research on {firm}", "Background on {firm}", "What I found on {firm}"]
     body: >-
       I spent some time looking into {firm}. They have grown quite a bit over the last two years and opened a second
@@ -189,6 +205,7 @@ templates:
       - "Good research. I would wait until after their busy season though."
 
   - id: research-list
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Shortlist of firms for next week", "{n} firms to look at", "Next batch of firms"]
     body: >-
       I put together a shortlist of {n} firms for next week, including {firm}. They are all in the same size range
@@ -200,6 +217,7 @@ templates:
       - "Thanks. {firm} looks especially promising."
 
   - id: research-competitor
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["How {firm} handles intake", "Interesting setup at {firm}", "Notes on {firm}'s process"]
     body: >-
       I was reading through some public information on {firm} and noticed they changed how they handle new clients.
@@ -211,6 +229,7 @@ templates:
       - "Interesting. Let us mention it carefully, we do not want to sound like we are watching them."
 
   - id: research-industry
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Pattern in the firms we spoke to", "Something I noticed in our calls", "Common thread across calls"]
     body: >-
       Looking back at the last few calls, almost every firm mentioned that follow-ups slip when things get busy. It
@@ -222,6 +241,7 @@ templates:
       - "Makes sense. Let us try it on the next two calls and compare."
 
   - id: research-size
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Team size question on {firm}", "How big is {firm}?", "Headcount at {firm}"]
     body: >-
       Do you know roughly how many people work at {firm}? Their profile says one number but it seems out of date. It
@@ -232,6 +252,7 @@ templates:
       - "Last I heard it was a small team, under fifteen."
 
   - id: tools-crm
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Thoughts on {tool}", "Should we try {tool}?", "{tool} for the team"]
     body: >-
       I have been reading about {tool} and I think it could save us some time on the weekly reporting. It is not
@@ -244,6 +265,7 @@ templates:
       - "Worth a try. Let us agree on what success looks like before we start."
 
   - id: tools-access
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Access to {tool}", "Login for {tool}", "Adding you to {tool}"]
     body: >-
       I added you to {tool} this morning. You should get an invite from them shortly. Let me know if it does not
@@ -254,6 +276,7 @@ templates:
       - "Thanks, I will have a look around this afternoon."
 
   - id: tools-workflow
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Small change to our {tool} workflow", "Tweaking how we use {tool}", "{tool} workflow idea"]
     body: >-
       I changed one step in how we use {tool}. New entries now go into a review column first instead of straight into
@@ -264,6 +287,7 @@ templates:
       - "Fine by me. Let us see how it goes this week."
 
   - id: tools-cost
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Reviewing our tool subscriptions", "Tool costs this month", "Subscriptions check"]
     body: >-
       I went through our tool subscriptions and we are paying for {n} things we barely use. I would like to cancel at
@@ -276,6 +300,7 @@ templates:
       - "Please keep {tool}, I still use it every week. Otherwise go ahead."
 
   - id: tools-template
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["New template in {tool}", "Template for call notes", "Shared notes template"]
     body: >-
       I made a simple template for call notes in {tool}. It has sections for context, questions, answers, and next
@@ -286,6 +311,7 @@ templates:
       - "Good idea. I would add a short section for objections."
 
   - id: tools-integration
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Connecting {tool} to the tracker", "{tool} and the tracker", "Syncing {tool} with our sheet"]
     body: >-
       I am looking at connecting {tool} to the tracker so we stop copying things by hand. It looks doable in an
@@ -297,6 +323,7 @@ templates:
       - "The owner column should stay manual. The rest can sync."
 
   - id: ops-invoice
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Invoice question", "Quick billing question", "Billing reminder for this month"]
     body: >-
       Do you know if the invoice for last month went out? I cannot find it in the shared folder. If it has not been
@@ -307,6 +334,7 @@ templates:
       - "Let me check and get back to you within the hour."
 
   - id: ops-folder
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Reorganizing the shared folder", "Shared folder structure", "Folder cleanup"]
     body: >-
       The shared folder is getting hard to navigate. I want to group things by client and move old files into an
@@ -317,6 +345,7 @@ templates:
       - "Good idea. Keep the templates folder at the top level if possible."
 
   - id: ops-onboarding
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Onboarding checklist", "Checklist for new clients", "Draft onboarding steps"]
     body: >-
       I wrote a short checklist for onboarding new clients. It covers the kickoff call, access requests, and the
@@ -329,6 +358,7 @@ templates:
       - "Great start. Keep it short, that is the best part."
 
   - id: ops-handover
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Covering for me on {day}", "Out on {day} afternoon", "Handover for {day}"]
     body: >-
       I will be out on {day} afternoon. There is one follow-up due with {firm} that day. Could you send it if I do
@@ -339,6 +369,7 @@ templates:
       - "Got it, I will send it if it is still open."
 
   - id: ops-priorities
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Priorities for next week", "Next week's focus", "What should we focus on next week?"]
     body: >-
       I want to agree on two or three priorities for next week before we get busy. My suggestion is the {firm}
@@ -350,6 +381,7 @@ templates:
       - "Good list. Let us confirm it in our sync."
 
   - id: ops-feedback
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Feedback on the proposal draft", "Comments on the proposal", "Proposal draft for {firm}"]
     body: >-
       I read through the proposal draft for {firm}. Overall it is clear, but the pricing section feels a bit long.
@@ -360,6 +392,7 @@ templates:
       - "Good point. Keep the table simple, three rows at most."
 
   - id: ops-numbers
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Month to date numbers", "Quick numbers check", "Numbers for the monthly review"]
     body: >-
       I am pulling the month to date numbers for the review. Could you send me your call count and any meetings
@@ -370,6 +403,7 @@ templates:
       - "Will do. Is end of day ok?"
 
   - id: outreach-copy
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Feedback on our intro message", "Rewriting the intro message", "Shorter intro message"]
     body: >-
       I think our intro message is too long. I tried a shorter version that is only three sentences and asks one
@@ -382,6 +416,7 @@ templates:
       - "Good rewrite. I would mention the specific problem in the first line."
 
   - id: outreach-timing
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Best time to reach out", "Timing for outreach", "When do firms reply?"]
     body: >-
       I looked at when we usually get replies and most come in mid morning. It might make sense to schedule our
@@ -392,6 +427,7 @@ templates:
       - "Good find. I will adjust my schedule."
 
   - id: outreach-followup
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Second follow-up for {firm}", "Following up with {firm}", "{firm} has gone quiet"]
     body: >-
       We have not heard back from {firm} since the first call. I would like to send a short second follow-up on {day}.
@@ -403,6 +439,7 @@ templates:
       - "Sure, send it. They seemed interested on the call."
 
   - id: outreach-referral
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Possible referral from {firm}", "Intro through {firm}", "Referral idea"]
     body: >-
       Our contact at {firm} mentioned they know a few other firms with the same problem. I would like to ask if they
@@ -414,6 +451,7 @@ templates:
       - "Good idea. Let us ask after they have seen some results."
 
   - id: product-feedback
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Feature request from {firm}", "Something {firm} asked for", "Customer request to discuss"]
     body: >-
       {firm} asked whether we can send a weekly summary to their team automatically. It came up twice on the call so
@@ -425,6 +463,7 @@ templates:
       - "Good to know. I will think about it before {day}."
 
   - id: product-demo
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Updating the demo", "Demo walkthrough changes", "Shorter demo flow"]
     body: >-
       I think our demo spends too long on setup. I would like to start with the end result and then show how we got
@@ -435,6 +474,7 @@ templates:
       - "Sure, {day} afternoon works for a run through."
 
   - id: product-docs
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Writing a short FAQ", "FAQ for clients", "Common questions doc"]
     body: >-
       We keep answering the same {n} questions on calls. I started a short FAQ that we can send after the first
@@ -445,6 +485,7 @@ templates:
       - "Nice. Keep the answers short and friendly."
 
   - id: hiring-intern
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Interview schedule for {day}", "Candidate interviews {day}", "Interviews this week"]
     body: >-
       We have two candidate interviews on {day}, the first one at {time}. I shared their notes in the hiring folder.
@@ -455,6 +496,7 @@ templates:
       - "I might be a few minutes late, but I will join."
 
   - id: hiring-feedback
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Feedback on today's candidate", "Thoughts after the interview", "Interview notes"]
     body: >-
       What did you think of the candidate today? I liked how they explained their last project, but I am not sure
@@ -467,6 +509,7 @@ templates:
       - "Strong on the technical side. I would do one more short call."
 
   - id: team-lunch
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Team lunch on {day}?", "Lunch plans {day}", "Getting lunch {day}"]
     body: >-
       It has been a while since we all had lunch together. Would {day} work for you? I was thinking somewhere close
@@ -477,6 +520,7 @@ templates:
       - "Could we do the day after? {day} is a bit full."
 
   - id: admin-calendar
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Shared calendar update", "Blocking focus time", "Calendar change for next week"]
     body: >-
       I blocked some focus time on the shared calendar for next week, mostly mornings. I will still be reachable on
@@ -487,6 +531,7 @@ templates:
       - "Thanks for the heads up. Looks fine."
 
   - id: admin-weekly-wrap
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     weekdays: [3, 4]               # Thursday/Friday only
     subjects: ["Wrapping up the week", "End of week wrap", "Quick wrap for the week"]
     body: >-
@@ -499,6 +544,7 @@ templates:
       - "Great week. Talk on Monday."
 
   - id: admin-training
+    min_week: 99   # parked generic template (Trilles AI pool); re-enable by lowering
     subjects: ["Short session on {tool}", "Learning session idea", "{tool} tips session"]
     body: >-
       A few of us are not using {tool} to its full potential. I could run a short session on {day} to share the
@@ -507,3 +553,268 @@ templates:
       - "Yes, definitely. I only use the basics."
       - "Sounds useful. {day} works."
       - "Sure, record it if you can so others can watch later."
+
+  - id: pi-intake-review
+    min_week: 1
+    subjects: ["Intake notes on {matter}", "Intake call follow-up", "New intake needs a second look"]
+    body: >-
+      Took a new intake call this morning for {matter}. The caller was hurt about three weeks ago and has not seen a doctor since the first visit.
+      I wrote up the facts and the insurance details in the intake sheet. Can you look it over before {day} and tell me if we should take it?
+    replies:
+      - "Read the notes and I think it is worth a follow-up call. Let us talk it through on {day}."
+      - "Thanks for the clear write-up. I would ask about the police report before we decide."
+      - "Looks promising. Please book the follow-up and I will review it right after."
+
+  - id: pi-records-request
+    min_week: 1
+    subjects: ["Medical records request status", "Records still outstanding on {matter}", "Waiting on records for {firm}"]
+    body: >-
+      The records request for {matter} went out {n} weeks ago and we still have nothing from the provider. I called their records desk today and they said it is in the queue.
+      I will follow up again on {day} and note every contact in the file. Let me know if you want me to escalate it to the office manager.
+    replies:
+      - "Thanks for staying on it. Keep logging each call and we will escalate if nothing arrives by {day}."
+      - "Understood. Please send me the provider contact so I can try a different number."
+      - "Good call on documenting it. Let us give it until {day}."
+
+  - id: pi-demand-draft
+    min_week: 1
+    subjects: ["Demand letter draft for review", "Draft demand on {matter}", "Please review the demand outline"]
+    body: >-
+      I finished a first draft of the demand outline for {matter}. It covers the treatment timeline, the medical bills so far, and the lost wages the client reported.
+      I have not added the final numbers because we are still waiting on one bill. Could you review the structure before {day}?
+    replies:
+      - "Structure looks right. I would lead with the treatment timeline and move the wage section after it."
+      - "Thanks, I will read it tonight and send comments tomorrow morning."
+      - "Good start. Hold the numbers until the last bill arrives and then we can finalize."
+
+  - id: pi-settlement-followup
+    min_week: 1
+    subjects: ["Adjuster follow-up this week", "Following up with the carrier", "Settlement conversation update"]
+    body: >-
+      I spoke with the adjuster on {matter} today and they asked for two more weeks to review our package. I told them we would wait until {day} and then reassess.
+      I wrote down the call details in the file. Does that timeline work for you?
+    replies:
+      - "That works. Please set a reminder for {day} so it does not slip."
+      - "Fine by me. If they ask for more time again let us discuss before agreeing."
+      - "Thanks for the update. I will note it on my side too."
+
+  - id: pi-client-update
+    min_week: 1
+    subjects: ["Client update call on {matter}", "Time to update the client", "Checking in with the client"]
+    body: >-
+      The client from {matter} has not heard from us in about ten days and I think we owe them an update. I put together a short summary of where the records and the insurance claim stand.
+      Can you take the call, or would you like me to do it? I am free most of {day}.
+    replies:
+      - "I will take it. Send me the summary and I will call after lunch."
+      - "Please go ahead and make the call, I am tied up on {day}."
+      - "Good idea. Clients appreciate a quick update even when there is no big news."
+
+  - id: pi-calendar-deadlines
+    min_week: 1
+    subjects: ["Deadlines for the coming weeks", "Calendar check on filing dates", "Reviewing the statute dates"]
+    body: >-
+      I went through the calendar and listed every filing date and statute deadline for the next {n} weeks. Two of them fall in the same week, so I flagged them in red.
+      Could you double check the dates against the files before {day}? I would rather catch a mistake now than later.
+    replies:
+      - "Checked them all and they match the files. Thanks for flagging the overlap."
+      - "Good catch on the two in the same week. Let us plan the work around them."
+      - "I will go through them on {day} morning and tell you if anything looks off."
+
+  - id: pi-referral-partner
+    min_week: 1
+    subjects: ["Referral partner follow-up", "Thank you note for a referral", "Coffee with a referring attorney"]
+    body: >-
+      A local attorney sent us {matter} last week and I want to thank them properly. I was thinking of a short call and a handwritten note rather than just an email.
+      Do you want to join the call, or should I handle it? I can set it up for {day}.
+    replies:
+      - "Handle it and I will sign the note. Referral relationships matter a lot to us."
+      - "I can join on {day}. Send me the time when it is booked."
+      - "Nice idea. A handwritten note will stand out."
+
+  - id: pi-case-load
+    min_week: 1
+    subjects: ["Caseload balance this month", "Who is taking the new matters?", "Splitting the new intakes"]
+    body: >-
+      We have {n} new matters this week and the caseload is uneven. I suggest I take the ones that need records work and you take the ones heading toward a demand.
+      Does that split work for you? We can adjust it on {day} if it feels unbalanced.
+    replies:
+      - "That split makes sense to me. Let us revisit it on {day}."
+      - "Fine with me, just send me the list so I can plan my week."
+      - "Agreed. I would keep one open slot for anything urgent."
+
+  - id: pi-accident-reports
+    min_week: 1
+    subjects: ["Police report for {matter}", "Crash report arrived", "Waiting on the accident report"]
+    body: >-
+      The accident report for {matter} finally came in this morning. It lists the other driver as the at fault party and includes a witness statement.
+      I saved it to the file and highlighted the witness section. Can you read it before the {day} meeting?
+    replies:
+      - "Read it and the witness statement helps a lot. Nice work getting it."
+      - "Thanks, I will review it before {day}."
+      - "Good, that changes how I see the liability. Let us talk about it in the meeting."
+
+  - id: pi-insurance-limits
+    min_week: 1
+    subjects: ["Policy limits question", "Coverage details on {matter}", "Insurance limits to confirm"]
+    body: >-
+      I am trying to confirm the policy limits on {matter} and the carrier has not responded to our written request. I sent a second letter today and copied the file.
+      Do you know a faster way to get that information? I would like to have it before {day}.
+    replies:
+      - "Try asking the adjuster directly by phone, that has worked for me before."
+      - "Good that you sent the second letter. Give it until {day} and then call."
+      - "I will check if we have a contact at that carrier and send it over."
+
+  - id: pi-treatment-timeline
+    min_week: 1
+    subjects: ["Treatment timeline for the file", "Summary of the client's treatment", "Building the treatment chronology"]
+    body: >-
+      I am building a treatment chronology for {matter} from the records we have. So far it covers the emergency visit, the follow-up with the orthopedic specialist, and {n} physical therapy sessions.
+      I will keep adding to it as records arrive. Would you like it in a table or as a short written summary?
+    replies:
+      - "A table is easier to scan. Please add a column for the provider name."
+      - "Table please. It will help with the demand letter later."
+      - "A short summary on top and the table below would be ideal."
+
+  - id: pi-consult-scheduling
+    min_week: 1
+    subjects: ["Consultation slots this week", "Free consultation schedule", "Booking new client consultations"]
+    body: >-
+      We have {n} people waiting for a free consultation and our calendar is tight. I opened a few extra slots on {day} afternoon so we can see them quickly.
+      Can you cover two of them? I will send the intake summaries before the calls.
+    replies:
+      - "I can cover two. Send me the summaries the day before."
+      - "Yes, please put me down for the {time} slots."
+      - "Good idea, quick response matters when someone has just been hurt."
+
+  - id: pi-file-closing
+    min_week: 1
+    subjects: ["Closing checklist for a settled matter", "Wrapping up a completed file", "Final steps on a closed case"]
+    body: >-
+      One of our matters settled last week and I want to make sure we close the file correctly. I made a checklist with the final accounting, the lien confirmations, and the closing letter to the client.
+      Could you check the list and add anything I missed before {day}?
+    replies:
+      - "The list looks complete. I would add a step to confirm all liens are resolved."
+      - "Thanks for building this, it will help with future files too."
+      - "Reviewed and approved. Let us use it as our standard checklist."
+
+  - id: pi-intake-script
+    min_week: 1
+    subjects: ["Updating our intake questions", "Improving the intake script", "Intake call script changes"]
+    body: >-
+      I noticed we often forget to ask whether the caller has talked to the other insurance company. I added that question and one about prior injuries to the intake script.
+      Can you read the new version and tell me if the order makes sense? I want to try it on calls starting {day}.
+    replies:
+      - "The order makes sense. I would move the insurance question closer to the start."
+      - "Good additions. I will use the new script on my next call."
+      - "Looks good, thanks. Let us see how it works for a week."
+
+  - id: pi-expert-scheduling
+    min_week: 1
+    subjects: ["Scheduling a medical review", "Expert review timing", "Setting up an expert consult"]
+    body: >-
+      We may need a medical expert to review the records on {matter}. I contacted two offices and one has an opening in about {n} weeks.
+      Should I hold that date or keep looking for something earlier? I can decide with you on {day}.
+    replies:
+      - "Hold the date for now and keep looking for something earlier."
+      - "Take the opening, we can always move it later."
+      - "Let us talk on {day} once we know how much time we have."
+
+  - id: pi-weekly-sync
+    min_week: 1
+    subjects: ["Weekly case review agenda", "Agenda for the {day} case review", "Topics for our weekly sync"]
+    body: >-
+      Here is the agenda for our weekly case review. We will cover new intakes, records still outstanding, and any matters close to a deadline.
+      If you want to add something, please reply before {day} so I can update the list.
+    replies:
+      - "The agenda covers everything I wanted. Thanks for putting it together."
+      - "Please add the referral follow-up to the list."
+      - "Looks good. I will bring my notes on the open records requests."
+
+  - id: out-intake-automation
+    min_week: 2
+    subjects: ["Faster intake at {firm}", "A question about intake at {firm}", "Idea for {firm}'s intake process"]
+    body: >-
+      I work with personal injury firms on automating client intake, so new callers get a response and a completed intake form within minutes instead of hours.
+      Many firms tell us they lose potential clients simply because nobody called back quickly enough. Would it be worth a short call next week to see if this fits {firm}?
+      If it is not relevant, just tell me and I will not follow up.
+    replies:
+      - "Thanks for reaching out. Intake speed is something we have been discussing, so I am open to a call."
+      - "Interesting. Can you send two or three times that work on {day}?"
+      - "Not a priority right now, but please check back next quarter."
+
+  - id: out-lead-generation
+    min_week: 2
+    subjects: ["More qualified cases for {firm}", "Lead generation for personal injury firms", "Quick note on case leads"]
+    body: >-
+      We help personal injury firms bring in more qualified case leads without adding to the intake workload. The focus is on people who were recently injured and are actively looking for a lawyer.
+      Is growing the number of good cases a priority for {firm} this quarter? I can share how we approach it in a short call.
+    replies:
+      - "Growth is a priority for us. What does your process look like?"
+      - "Possibly. Send me a few details and I will review them before {day}."
+      - "We are happy with our current sources, but thanks for asking."
+
+  - id: out-followup-speed
+    min_week: 2
+    subjects: ["Missed calls and new leads", "What happens to calls after hours?", "After-hours inquiries at {firm}"]
+    body: >-
+      A lot of injured people call several firms and sign with whoever answers first. We set up systems that answer new inquiries right away, even at night and on weekends, and pass the details to your intake team.
+      Do you currently have anything like that at {firm}? I would be glad to explain how it works in a few minutes.
+    replies:
+      - "We have an answering service but I am not sure how well it works. Happy to hear more."
+      - "Good timing, this has come up in our meetings. Let us set a call for {day}."
+      - "We already have something in place, thank you."
+
+  - id: out-case-screening
+    min_week: 2
+    subjects: ["Screening new cases at {firm}", "Sorting strong cases from weak ones", "Helping your team screen new inquiries"]
+    body: >-
+      Many personal injury firms spend hours each week on inquiries that are not a fit. We build simple tools that ask the right questions up front and flag the cases that look promising.
+      That leaves your attorneys with more time for the matters that matter. Would a short conversation make sense?
+    replies:
+      - "That would save us time. Please send a summary of how it works."
+      - "I am curious. Can we talk on {day}?"
+      - "We screen manually and are comfortable with that, but thank you."
+
+  - id: out-intro-short
+    min_week: 2
+    subjects: ["Introduction from Trilles Law", "Quick introduction", "Hello from Trilles Law"]
+    body: >-
+      I am reaching out because Trilles Law works with personal injury firms on intake automation and lead generation. We keep things simple and focus on helping firms respond faster and sign more of the right cases.
+      If that is something you are thinking about, I would be happy to answer any questions. If not, no problem at all.
+    replies:
+      - "Thanks for the introduction. I would like to learn more."
+      - "Good to hear from you. Let us talk after the {day} meeting."
+      - "Nice to meet you by email. Please send a short overview."
+
+  - id: out-referral-flow
+    min_week: 2
+    subjects: ["Following up on new inquiries", "Connecting inquiries to your team", "Handling inquiries faster at {firm}"]
+    body: >-
+      We noticed that personal injury firms often get new inquiries from several places at once, like phone calls, web forms, and referral partners. We help bring them into one simple process so none get missed.
+      Does that sound like a problem at {firm}? I can show how it works in about fifteen minutes.
+    replies:
+      - "We do have inquiries in several places. A single view would be great."
+      - "Maybe. Can you send me a time on {day}?"
+      - "We are covered for now, thank you."
+
+  - id: out-quick-question
+    min_week: 2
+    subjects: ["Quick question for {firm}", "Who handles intake at {firm}?", "Right person for intake questions?"]
+    body: >-
+      I am trying to find the right person to talk to about client intake and lead follow-up at {firm}. We help personal injury firms respond to new inquiries faster and keep track of every lead.
+      If that is you, I would be happy to share a few ideas. If not, could you point me to the right person?
+    replies:
+      - "That would be me. Send me a few ideas and I will take a look."
+      - "Try our office manager. I can introduce you on {day}."
+      - "I am not the right person, sorry. Please try the main office."
+
+  - id: out-no-pressure
+    min_week: 2
+    subjects: ["Checking in about intake automation", "Following up on my note", "One more note on intake"]
+    body: >-
+      I wanted to follow up on my earlier note about intake automation for personal injury firms. We keep the setup light, and most firms see new inquiries answered much faster within the first weeks.
+      If this is not the right time, I understand. Just let me know and I will stop reaching out.
+    replies:
+      - "Thanks for following up. Let us talk next week."
+      - "Please check back at the start of next month."
+      - "Appreciate the note. Not interested right now."
