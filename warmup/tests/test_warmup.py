@@ -12,15 +12,17 @@ CFG = config.load()
 def test_calendar_and_shift():
     assert target_range(CFG, dt.date(2026, 11, 12)) == (5, 10)
     assert target_range(CFG, dt.date(2026, 11, 19)) == (10, 15)
-    assert target_range(CFG, dt.date(2026, 11, 26)) == (15, 25)
+    assert target_range(CFG, dt.date(2026, 11, 23)) == (15, 25)  # Week 3 pulled forward to Mon 23 Nov
+    assert target_range(CFG, dt.date(2026, 11, 30)) == (25, 35)
     assert target_range(CFG, dt.date(2026, 12, 10)) == (25, 35)
     assert target_range(CFG, dt.date(2026, 11, 14)) == (0, 0)  # Saturday
+    original_start = CFG.start_date
     CFG.start_date = dt.date(2026, 11, 16)
     try:
         assert week_number(CFG, dt.date(2026, 11, 23)) == 2
         assert target_range(CFG, dt.date(2026, 11, 13)) == (0, 0)
     finally:
-        CFG.start_date = dt.date(2026, 11, 12)
+        CFG.start_date = original_start
 
 
 def test_spread_times_gaps_and_hours():

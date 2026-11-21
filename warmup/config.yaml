@@ -1,7 +1,7 @@
 # Warm-up configuration. No secrets in this file.
 
 timezone: America/New_York          # Trilles Law, St. Petersburg FL
-start_date: 2026-11-12              # Week 1 day 1. A later date shifts every week by the same number of days.
+start_date: 2026-11-09              # Shifted 3 days earlier on 21 Nov at the owner's request: Week 3 (15-25/day) now starts Mon 23 Nov, Week 4 on Mon 30 Nov.
 weekdays_only: true
 extra_working_days: []             # one-off weekend days to send on
 working_hours: {start: "09:00", end: "17:00"}
